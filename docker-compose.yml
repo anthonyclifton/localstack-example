@@ -1,0 +1,19 @@
+version: '3.1'
+
+services:
+
+  localstack:
+    image: localstack/localstack
+    ports:
+      - "4567-4597:4567-4597"
+      - "8080:8080"
+    environment:
+      - SERVICES=apigateway,dynamodb,s3,lambda,sqs,ses,route53,cloudwatch,ssm,iam,ec2,kms
+      - DEBUG=true
+      - DATA_DIR=${DATA_DIR- }
+      - PORT_WEB_UI=8080
+      - LAMBDA_EXECUTOR=docker_reuse
+      - KINESIS_ERROR_PROBABILITY=0.0
+      - DOCKER_HOST=unix:///var/run/docker.sock
+    volumes:
+      - ./localstack-data:/tmp/localstack

@@ -23,4 +23,4 @@ Boilerplate with the following AWS services supported by the community edition o
 
 ## How?
 
-Coming soon
+* pip install awscli-local

@@ -9,7 +9,7 @@ services:
       - "8080:8080"
     environment:
       - SERVICES=apigateway,dynamodb,s3,lambda,sqs,ses,route53,cloudwatch,ssm,iam,ec2,kms
-      - DEBUG=true
+      - DEBUG=1
       - DATA_DIR=${DATA_DIR- }
       - PORT_WEB_UI=8080
       - LAMBDA_EXECUTOR=docker_reuse

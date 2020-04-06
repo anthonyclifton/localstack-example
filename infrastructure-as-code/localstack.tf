@@ -8,18 +8,18 @@
     skip_requesting_account_id  = true
 
     endpoints {
-      apigateway     = "http://192.168.0.7:4567"
-      kinesis        = "http://192.168.0.7:4568"
-      dynamodb       = "http://192.168.0.7:4569"
-      s3             = "http://192.168.0.7:4572"
-      lambda         = "http://192.168.0.7:4574"
-      sns            = "http://192.168.0.7:4575"
-      sqs            = "http://192.168.0.7:4576"
-      ses            = "http://192.168.0.7:4579"
-      route53        = "http://192.168.0.7:4580"
-      cloudwatch     = "http://192.168.0.7:4582"
-      ssm            = "http://192.168.0.7:4583"
-      sts            = "http://192.168.0.7:4592"
-      iam            = "http://192.168.0.7:4593"
+      apigateway     = "http://localhost:4567"
+      kinesis        = "http://localhost:4568"
+      dynamodb       = "http://localhost:4569"
+      s3             = "http://localhost:4572"
+      lambda         = "http://localhost:4574"
+      sns            = "http://localhost:4575"
+      sqs            = "http://localhost:4576"
+      ses            = "http://localhost:4579"
+      route53        = "http://localhost:4580"
+      cloudwatch     = "http://localhost:4582"
+      ssm            = "http://localhost:4583"
+      sts            = "http://localhost:4592"
+      iam            = "http://localhost:4593"
     }
   }

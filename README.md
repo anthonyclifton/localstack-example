@@ -23,4 +23,9 @@ Boilerplate with the following AWS services supported by the community edition o
 
 ## How?
 
-* pip install localstack awscli-local
+* Install VirtualBox
+* Install Vagrant from here: https://www.vagrantup.com/downloads.html
+* vagrant init hashicorp/bionic64 (the first time to create Vagrantfile)
+* vagrant up
+* vagrant ssh
+* vagrant destroy

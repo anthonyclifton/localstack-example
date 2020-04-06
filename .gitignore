@@ -2,3 +2,5 @@ localstack-data
 .idea
 .terraform
 terraform.tfstate*
+temporary
+.vagrant

@@ -21,4 +21,4 @@ if [[ ! -e ".terraform" ]]; then
   terraform init
 fi
 
-terraform apply
+terraform apply -auto-approve

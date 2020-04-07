@@ -4,6 +4,8 @@ dir="localstack"
 
 vagrant up
 
+# add wait until localstack is actually ready
+
 if [[ ! -e $dir ]]; then
     mkdir $dir
 elif [[ ! -d $dir ]]; then

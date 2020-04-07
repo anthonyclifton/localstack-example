@@ -67,7 +67,6 @@ Vagrant.configure("2") do |config|
   # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
-    git clone https://github.com/localstack/localstack.git
     sudo apt-get update
     sudo apt -y install docker.io
     sudo systemctl start docker

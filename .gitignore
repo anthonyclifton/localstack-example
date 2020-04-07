@@ -2,5 +2,7 @@ localstack-data
 .idea
 .terraform
 terraform.tfstate*
-temporary
+localstack
 .vagrant
+lambda_function.zip
+

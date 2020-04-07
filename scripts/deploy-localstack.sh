@@ -1,11 +1,8 @@
 #!/bin/bash
 
-dir="localstack/temporary"
+dir="localstack"
 
 vagrant up
-
-cd infrastructure-as-code
-
 
 if [[ ! -e $dir ]]; then
     mkdir $dir
@@ -13,7 +10,9 @@ elif [[ ! -d $dir ]]; then
     echo "$dir already exists but is not a directory" 1>&2
 fi
 
-rsync -avr --exclude='main.tf' aws/ localstack
+cp resources/localstack.tf localstack
+
+rsync -avr --exclude='main.tf' infrastructure-as-code/ localstack
 
 cd localstack
 

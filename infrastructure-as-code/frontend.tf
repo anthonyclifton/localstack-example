@@ -24,5 +24,5 @@ resource "aws_s3_bucket_object" "website_index" {
   bucket = "${aws_s3_bucket.testbucket.bucket}"
   acl = "public-read"
   key    = "index.html"
-  source = "../../frontend/index.html"
+  source = "../resources/frontend/index.html"
 }

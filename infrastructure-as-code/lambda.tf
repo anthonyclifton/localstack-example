@@ -10,7 +10,7 @@ resource "aws_lambda_function" "test_lambda" {
   role = "${aws_iam_role.iam_for_lambda_tf.arn}"
   handler = "index.handler"
   source_code_hash = "${data.archive_file.lambda_zip.output_base64sha256}"
-  runtime = "nodejs6.10"
+  runtime = "nodejs10.x"
 }
 
 resource "aws_iam_role" "iam_for_lambda_tf" {
@@ -31,4 +31,15 @@ resource "aws_iam_role" "iam_for_lambda_tf" {
       ]
   }
 EOF
+}
+
+resource "aws_lambda_permission" "apigw" {
+    statement_id = "AllowAPIGatewayInvoke"
+    action = "lambda:InvokeFunction"
+    function_name = aws_lambda_function.test_lambda.function_name
+    principal = "apigateway.amazonaws.com"
+
+    # The "/*/*/" portion grants access from any method on any resource
+    # within the API gateway REST API.
+    source_arn = "${aws_api_gateway_rest_api.hello.execution_arn}/*/*"
 }

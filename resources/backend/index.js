@@ -1,4 +1,10 @@
 exports.handler = (event, context, callback) => {
-    console.log("hello world");
-    callback(null, "success");
+    var response = {
+        statusCode: 200,
+        headers: {
+            'Content-Type': 'text/html; charset=utf-8'
+        },
+        body: JSON.stringify({data: "something"})
+    };
+    callback(null, response);
 };

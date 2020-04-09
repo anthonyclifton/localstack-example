@@ -5,6 +5,8 @@ dir="localstack"
 vagrant up
 
 # add wait until localstack is actually ready
+# temporarily, sleep for a bit
+sleep 30
 
 if [[ ! -e $dir ]]; then
     mkdir $dir

@@ -55,3 +55,5 @@ curl http://localhost:4567/restapis/[rest-api-id]/hello/_user_request_/
 awslocal dynamodb put-item --table-name Addresses --item '{"StreetAddress": {"S": "123"}, "City": {"S": "Test"}, "StateOrProvince": {"S": "Test2"}}'
 
 awslocal dynamodb get-item --table-name Addresses --key '{"StateOrProvince": {"S": "Test2"}, "City": {"S": "Test"}}'
+
+Localstack apigateway does not support importing swagger definitions.

@@ -43,3 +43,23 @@ resource "aws_lambda_permission" "apigw" {
     # within the API gateway REST API.
     source_arn = "${aws_api_gateway_rest_api.hello.execution_arn}/*/*"
 }
+
+resource "aws_iam_role_policy" "dynamodb-lambda-policy" {
+    name = "dynamodb_lambda_policy"
+    role = "${aws_iam_role.iam_for_lambda_tf.id}"
+
+    policy = <<EOF
+{
+    "Version": "2012-10-17",
+    "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "dynamodb:*"
+      ],
+      "Resource": "${aws_dynamodb_table.addresses-table.arn}"
+    }
+    ]
+  }
+EOF
+}

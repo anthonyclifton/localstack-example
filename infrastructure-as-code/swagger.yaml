@@ -1,0 +1,55 @@
+swagger: '2.0'
+info:
+  version: '1.0'
+  title: "Addresses"
+schemes:
+  - http
+paths:
+  "/api":
+    get:
+      description: "Get addresses"
+      produces:
+        - application/json
+      responses:
+        200:
+          description: "The addresses request successful."
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Address"
+      x-amazon-apigateway-integration:
+        uri: ${get_lambda_arn}
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "aws_proxy"
+    post:
+      description: "post an address"
+      consumes:
+        - application/json
+      responses:
+        200:
+          description: "The address was added successfully"
+      x-amazon-apigateway-integration:
+        uri: ${post_lambda_arn}
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "aws_proxy"
+
+definitions:
+  Address:
+    type: object
+    description: "An address"
+    properties:
+      streetAddress:
+        type: string
+        description: "Street Address"
+      city:
+        type: string
+        description: "City"
+      stateOrProvince:
+        type: string
+        description: "State or Province"
+    required:
+      - streetAddress
+      - city
+      - stateOrProvince
